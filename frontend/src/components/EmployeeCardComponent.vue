@@ -1,0 +1,142 @@
+<template>
+    <div class="container">
+
+        <div class="col-12">
+
+            <div class="card-container">
+                <span class="pro">EMPLOYEERATING</span>
+                <img class="round" src="employee.jpg" alt="user"/>  
+                <p>NAME : {{ info.signupName}}</p>
+                <p>SURNAME : {{ info.signupSurname }}</p>
+                <p>AGE : {{ info.signupAge }}</p>
+                <p>SEX : {{ info.signupSex }}</p>
+                <p>ADDRESS : {{ info.signupAddress }}</p>
+                <p>POSITION : {{ info.signupPosition }}</p>
+                <p>ENTERPRISE : {{ info.signupEnterprise }}</p>
+                <p>City : {{ info.signupCity }}</p>
+                <div>
+                 <star-rating id="star-rating"  :star-size="20" :read-only="false" :show-rating="false"></star-rating>
+                </div>
+                <div class="buttons">
+                    <span class="rating">
+                        <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+                        <label for="rating-input-1-5" class="rating-star"></label>
+                        <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1">
+                        <label for="rating-input-1-4" class="rating-star"></label>
+                        <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1">
+                        <label for="rating-input-1-3" class="rating-star"></label>
+                        <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1">
+                        <label for="rating-input-1-2" class="rating-star"></label>
+                        <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
+                        <label for="rating-input-1-1" class="rating-star"></label>
+                        <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
+                    </span>
+                    <br>
+                     <button type="submit" class="btn btn-danger"><i
+                        class="fa fa-share"></i>RATE</button>
+                </div>
+            <br>
+         
+             <br>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import store from '@/store'
+import StarRating from 'vue-star-rating'
+
+export default {
+    props: ["info"],
+    name: 'EmployeeCardComponent',
+ components: {
+      StarRating
+  }
+}
+</script>
+
+<style scoped>.rating {
+    overflow: hidden;
+    display: inline-block;
+    position: center;
+}
+
+.rating-input {
+    float: right;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin: 0 0 0;
+    opacity: 0;
+}
+
+.rating:hover .rating-star:hover,
+.rating:hover .rating-star:hover~.rating-star,
+.rating-input:checked~.rating-star {
+    background-position: 0 0;
+}
+
+.rating-star,
+.rating:hover .rating-star {
+    position: center;
+    display: block;
+    float: right;
+    width: 16px;
+    height: 16px;
+    background: url('https://www.everythingfrontend.com/samples/star-rating/star.png') 0 -16px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+    box-sizing: border-box;
+}
+
+
+h3 {
+    margin: 10px 0;
+}
+
+h6 {
+    margin: 5px 0;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 17px;
+    line-height: 21px;
+}
+
+.card-container {
+    background-image: linear-gradient(rgb(70, 100, 110),rgb(64, 83, 90), rgb(69, 129, 118),rgb(51, 104, 122));;
+    border-radius: 30px 10px;
+    box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+    color: #B3B8CD;
+    padding-top: 30px;
+    position: relative;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.card-container .pro {
+    color: #231E39;
+    background-color: #FEBB0B;
+    border-radius: 30px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 3px 7px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.card-container .round {
+    border: 1px solid #03BFCB;
+    border-radius: 50%;
+    padding: 7px;
+    margin-bottom: 20px;
+}
+
+
+</style>
